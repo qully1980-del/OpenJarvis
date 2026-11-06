@@ -28,7 +28,7 @@ def _register_optional_engines() -> None:
     # load at import time and raise OSError, not ImportError, on a host whose
     # macOS or Xcode is too old. Letting that escape would take down every
     # other engine too.
-    for optional in ("cloud", "litellm", "gemma_cpp", "apple_fm"):
+    for optional in ("cloud", "litellm", "gemma_cpp", "apple_fm", "claude_code"):
         try:
             importlib.import_module(f".{optional}", __name__)
         except (ImportError, OSError) as exc:

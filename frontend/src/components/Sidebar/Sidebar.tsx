@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router';
+import { EngineSwitch } from '../EngineSwitch'; // selector Local / Claude Code
 import {
   MessageSquare,
   Plus,
@@ -167,6 +168,8 @@ export function Sidebar() {
               </kbd>
             )}
           </button>
+
+          <EngineSwitch />
 
           {/* Search */}
           <div className="px-3 mb-2">

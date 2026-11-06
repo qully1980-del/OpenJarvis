@@ -73,6 +73,10 @@ def get_provider(model: str) -> str | None:
     # Provider-qualified IDs (e.g. "openai/gpt-oss-20b") still route to cloud.
     if model == "gpt-oss" or model.startswith(("gpt-oss:", "gpt-oss-")):
         return None
+    # Motor Claude Code (headless, engine/claude_code.py): lo sirve su propio
+    # motor dentro de MultiEngine, no el enrutador cloud.
+    if model.startswith("claudecode/"):
+        return None
     if any(model.startswith(p) for p in _OPENAI_PREFIXES):
         return "openai"
     if any(model.startswith(p) for p in _ANTHROPIC_PREFIXES):
