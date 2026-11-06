@@ -164,6 +164,14 @@ Descarga la versión oficial, vuelve a aplicar estos cambios encima, reinstala d
 
 ---
 
+## Contribuir
+
+- [Cómo contribuir](CONTRIBUTING.md): qué va en este fork y qué en el proyecto oficial.
+- [Código de conducta](CODE_OF_CONDUCT.md).
+- [Política de seguridad](SECURITY.md): cómo comunicar vulnerabilidades.
+
+---
+
 ## Créditos y licencias
 
 - **[OpenJarvis](https://github.com/open-jarvis/OpenJarvis)**: Apache License 2.0. Este fork mantiene la licencia y el aviso originales (`LICENSE`, `NOTICE`).
