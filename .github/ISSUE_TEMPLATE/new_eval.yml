@@ -1,63 +1,63 @@
-name: New Eval Dataset
-description: Propose a new evaluation dataset or benchmark
+name: Nuevo conjunto de evaluación
+description: Propón un nuevo conjunto de datos de evaluación o benchmark
 labels: ["type:eval"]
 body:
   - type: markdown
     attributes:
       value: |
-        Adding eval datasets is one of the easiest ways to contribute! Fill out the details below.
+        ¡Añadir conjuntos de evaluación es una de las formas más fáciles de contribuir! Rellena los datos siguientes.
   - type: input
     id: name
     attributes:
-      label: Dataset Name
-      placeholder: e.g., HumanEval, GSM8K
+      label: Nombre del conjunto de datos
+      placeholder: p. ej., HumanEval, GSM8K
     validations:
       required: true
   - type: input
     id: url
     attributes:
-      label: URL / Reference
-      description: Link to the dataset or paper.
+      label: URL / referencia
+      description: Enlace al conjunto de datos o al artículo.
       placeholder: https://...
     validations:
       required: true
   - type: checkboxes
     id: capability
     attributes:
-      label: What capability does it test?
+      label: ¿Qué capacidad evalúa?
       options:
-        - label: Reasoning
-        - label: Math
-        - label: Code
-        - label: Knowledge
+        - label: Razonamiento
+        - label: Matemáticas
+        - label: Código
+        - label: Conocimiento
         - label: Multimodal
-        - label: Tool Use
-        - label: Long Context
-        - label: Other
+        - label: Uso de herramientas
+        - label: Contexto largo
+        - label: Otra
   - type: input
     id: size
     attributes:
-      label: Approximate Size
-      description: Number of examples in the dataset.
-      placeholder: e.g., 500
+      label: Tamaño aproximado
+      description: Número de ejemplos del conjunto de datos.
+      placeholder: p. ej., 500
     validations:
       required: false
   - type: dropdown
     id: scorer
     attributes:
-      label: Proposed Scorer Type
+      label: Tipo de puntuación propuesto
       options:
-        - Exact Match
+        - Coincidencia exacta
         - F1
         - BLEU
-        - LLM-as-Judge
-        - Custom
+        - LLM como juez
+        - Personalizado
     validations:
       required: false
   - type: textarea
     id: context
     attributes:
-      label: Additional Context
-      description: Any other details about this dataset.
+      label: Contexto adicional
+      description: Cualquier otro detalle sobre el conjunto de datos.
     validations:
       required: false

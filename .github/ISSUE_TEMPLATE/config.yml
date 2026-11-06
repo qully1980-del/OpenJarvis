@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Ask a Question
+  - name: Preguntar sobre OpenJarvis
     url: https://github.com/open-jarvis/OpenJarvis/discussions
-    about: Use Discussions for questions and help
+    about: Para dudas generales sobre OpenJarvis, usa las Discussions del proyecto oficial
+  - name: Documentación de OpenJarvis
+    url: https://open-jarvis.github.io/OpenJarvis/
+    about: Guías y referencia de la API del proyecto oficial

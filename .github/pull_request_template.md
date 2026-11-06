@@ -1,16 +1,18 @@
-## What does this PR do?
+## ¿Qué hace esta pull request?
 
-<!-- Brief description of the change and its motivation -->
+<!-- Breve descripción del cambio y su motivo -->
 
-## How was this tested?
+## ¿Cómo se ha probado?
 
-<!-- Describe tests added or manual testing performed -->
+<!-- Pruebas añadidas o pasos seguidos para probarlo a mano (indica si fue en Windows) -->
 
-## Checklist
+## Lista de comprobación
 
-- [ ] Tests pass (`uv run pytest tests/ -v`)
-- [ ] Linter passes (`uv run ruff check src/ tests/`)
-- [ ] Formatter passes (`uv run ruff format --check src/ tests/`)
-- [ ] New/changed public API has docstrings
-- [ ] Follows registry pattern (if adding new component)
-- [ ] Documentation updated (if applicable)
+- [ ] Las pruebas pasan (`uv run pytest tests/ -v`)
+- [ ] El linter pasa (`uv run ruff check src/ tests/`)
+- [ ] El formateador pasa (`uv run ruff format --check src/ tests/`)
+- [ ] La interfaz compila (`cd frontend; npm run build`), si se ha tocado
+- [ ] La API pública nueva o modificada tiene docstrings
+- [ ] Sigue el patrón de registro (si añade un componente nuevo)
+- [ ] Documentación actualizada (si aplica)
+- [ ] No incluye datos personales, de clientes ni secretos

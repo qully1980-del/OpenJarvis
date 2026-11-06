@@ -1,56 +1,57 @@
-name: Bug Report
-description: Report a bug or unexpected behavior
+name: Informe de error
+description: Comunica un error o un comportamiento inesperado
 labels: ["type:bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting a bug! Please fill out the information below to help us investigate.
+        ¡Gracias por comunicar el error! Rellena la información siguiente para ayudarnos a investigarlo.
+        **No incluyas datos personales, de clientes ni secretos** en la descripción ni en los registros.
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: A clear description of what the bug is.
+      label: Descripción
+      description: Una descripción clara del error.
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: Steps to Reproduce
-      description: Steps to reproduce the behavior.
+      label: Pasos para reproducirlo
+      description: Pasos para reproducir el comportamiento.
       placeholder: |
-        1. Run `jarvis ask "..."`
-        2. See error...
+        1. Ejecuta `jarvis ask "..."`
+        2. Aparece el error...
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Expected Behavior
-      description: What you expected to happen.
+      label: Comportamiento esperado
+      description: Lo que esperabas que ocurriera.
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Actual Behavior
-      description: What actually happened.
+      label: Comportamiento real
+      description: Lo que ocurrió en realidad.
     validations:
       required: true
   - type: dropdown
     id: os
     attributes:
-      label: Operating System
+      label: Sistema operativo
       options:
+        - Windows
         - Linux
         - macOS
-        - Windows
     validations:
       required: true
   - type: dropdown
     id: python
     attributes:
-      label: Python Version
+      label: Versión de Python
       options:
         - "3.10"
         - "3.11"
@@ -63,33 +64,34 @@ body:
     attributes:
       label: Hardware
       options:
-        - NVIDIA GPU
-        - AMD GPU
+        - GPU NVIDIA
+        - GPU AMD
         - Apple Silicon
-        - CPU only
+        - Solo CPU
     validations:
       required: true
   - type: dropdown
     id: engine
     attributes:
-      label: Engine
-      description: Which inference engine are you using?
+      label: Motor
+      description: ¿Qué motor de inferencia usas?
       options:
         - Ollama
+        - Claude Code (headless)
         - vLLM
         - llama.cpp
         - SGLang
         - MLX
-        - Cloud (OpenAI/Anthropic/Google)
+        - Nube (OpenAI/Anthropic/Google)
         - LiteLLM
-        - Other
+        - Otro
     validations:
       required: false
   - type: textarea
     id: logs
     attributes:
-      label: Logs / Traceback
-      description: Paste any relevant logs or traceback here.
+      label: Registros / traza
+      description: Pega aquí los registros o la traza relevantes (por ejemplo, de `%USERPROFILE%\.openjarvis\logs\app-server.log`).
       render: shell
     validations:
       required: false
