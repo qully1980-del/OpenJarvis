@@ -8,6 +8,10 @@ import App from './App';
 import { initApiBase } from './lib/api';
 import { initAnalytics } from './lib/analytics';
 import './index.css';
+import './styles/aurora.css'; // tema oscuro «Aurora»
+import { installSpanish } from './i18n/es'; // traducción local al castellano
+
+installSpanish();
 
 function applyTheme() {
   try {
