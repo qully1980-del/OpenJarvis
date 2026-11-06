@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OpenJarvis</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body {
+    display: grid; place-items: center;
+    font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    color: #F5F3FA;
+    background:
+      radial-gradient(900px 600px at 12% -10%, rgba(214, 28, 78, .28), transparent 60%),
+      radial-gradient(800px 500px at 105% 105%, rgba(247, 126, 33, .18), transparent 60%),
+      radial-gradient(900px 700px at 60% 40%, rgba(39, 32, 100, .6), transparent 70%),
+      #0d0920;
+    overflow: hidden;
+  }
+  .box { text-align: center; }
+  .logo {
+    width: 96px; height: 96px; margin: 0 auto 28px; border-radius: 28px;
+    background: linear-gradient(120deg, #D61C4E 0%, #F77E21 58%, #FAC213 100%);
+    display: grid; place-items: center;
+    box-shadow: 0 20px 60px -12px rgba(214, 28, 78, .7), 0 0 0 12px rgba(214, 28, 78, .07);
+    animation: float 3s ease-in-out infinite;
+  }
+  .logo svg { width: 50px; height: 50px; }
+  h1 {
+    margin: 0 0 6px; font-size: 32px; font-weight: 600; letter-spacing: -.02em;
+    background: linear-gradient(100deg, #fff, #F693AE 60%, #FCA562);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .by { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #747181; margin-bottom: 34px; }
+  .bar { width: 220px; height: 3px; margin: 0 auto 14px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .bar i { display: block; width: 40%; height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, #D61C4E, #F77E21, #FAC213); animation: slide 1.4s ease-in-out infinite; }
+  #msg { font-size: 13px; color: #ADABB6; min-height: 18px; }
+  @keyframes float { 50% { transform: translateY(-6px); } }
+  @keyframes slide { 0% { transform: translateX(-110%); } 100% { transform: translateX(280%); } }
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M10 2l1.8 6.2L18 10l-6.2 1.8L10 18l-1.8-6.2L2 10l6.2-1.8z"/><path d="M18.5 13l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z" opacity=".85"/></svg>
+    </div>
+    <h1>OpenJarvis</h1>
+    <div class="by">asistente personal</div>
+    <div class="bar"><i></i></div>
+    <div id="msg">Iniciando el asistente…</div>
+  </div>
+<script>
+  const PORT = new URLSearchParams(location.search).get('port') || '8000';
+  const URL_APP = `http://127.0.0.1:${PORT}/`;
+  const msgs = ['Iniciando el asistente…', 'Cargando el modelo local…', 'Preparando la memoria…', 'Casi listo…'];
+  let n = 0;
+  const tick = setInterval(() => { n++; document.getElementById('msg').textContent = msgs[Math.min(Math.floor(n / 4), msgs.length - 1)]; }, 1000);
+  async function wait() {
+    try {
+      await fetch(`${URL_APP}health`, { mode: 'no-cors', cache: 'no-store' });
+      clearInterval(tick);
+      location.replace(URL_APP);
+    } catch { setTimeout(wait, 700); }
+  }
+  wait();
+  setTimeout(() => {
+    document.getElementById('msg').textContent = 'El servidor tarda más de lo normal. Revisa ~/.openjarvis/logs/app-server.log';
+  }, 120000);
+</script>
+</body>
+</html>

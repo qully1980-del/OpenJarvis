@@ -1,0 +1,37 @@
+# Configuración de ejemplo para la edición en castellano de OpenJarvis.
+# Cópiala a %USERPROFILE%\.openjarvis\config.toml (o fusiónala con la tuya).
+
+[engine]
+default = "ollama"
+
+[intelligence]
+# qwen3.5:2b es fluido en portátiles sin GPU dedicada; qwen3.5:9b da más calidad.
+default_model = "qwen3.5:2b"
+
+[agent]
+default_agent = "simple"
+default_system_prompt = "Eres OpenJarvis, un asistente de IA útil que funciona en local, en el propio equipo del usuario. Responde siempre en castellano (español de España), salvo que el usuario te pida expresamente otro idioma. Sé útil, conciso y preciso."
+system_prompt = "Eres OpenJarvis, un asistente de IA útil que funciona en local, en el propio equipo del usuario. No eres un servicio en la nube ni eres Claude, ChatGPT, Gemini ni ningún otro asistente de marca. Si te preguntan quién o qué eres, preséntate como OpenJarvis. Responde siempre en castellano (español de España), salvo que el usuario te pida expresamente otro idioma. Sé útil, conciso y preciso."
+
+[tools]
+enabled = ["code_interpreter", "web_search", "file_read", "shell_exec"]
+
+[tools.storage]
+# Fragmentos de la base de conocimiento que se añaden a cada pregunta.
+context_top_k = 8
+context_max_tokens = 2048
+
+[analytics]
+enabled = false
+choice_recorded = true
+
+[speech]
+language = "es"
+
+[security]
+# Redacta datos sensibles, limita peticiones y mantiene el servidor en 127.0.0.1.
+profile = "personal"
+
+[server]
+host = "127.0.0.1"
+port = 8000
